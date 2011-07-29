@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Fetches and rebases the current branch off the remote HEAD.
+# Requires the remote have a HEAD ref (usually a pointer to master, hence the name).
+#
+# Usage: git rebase-remote [remote-name] [branch-name]
+
+remote=${1:-origin}
+branch=${2:-HEAD}
+git fetch $remote && git rebase $remote/$branch
